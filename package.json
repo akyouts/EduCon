@@ -1,0 +1,9 @@
+{
+  "name": "EduCon",
+  "version": "1.0.0",
+  "description": "Notes Organizer",
+  "main": "server.js",
+  "repository": "https://github.com/akyouts/EduCon.git",
+  "author": "Ahad Khan",
+  "license": "MIT"
+}
