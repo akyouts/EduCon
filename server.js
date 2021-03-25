@@ -10,7 +10,7 @@ const mongoose_connection_string = 'mongodb://localhost:27017'
 app.use(express.static('public'))
 
 app.set('view engine','ejs')
-app.set('views','G:/Projects/Under Development/EduHelper/resourses/views')
+app.set('views','G:/Projects/Under Development/EduCon/resourses/views')
 
 
 mongoose.connect(mongoose_connection_string,{useNewUrlParser: true, useUnifiedTopology: true})

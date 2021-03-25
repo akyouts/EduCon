@@ -1,0 +1,14 @@
+.logo{
+    height: 20%;
+    width: 20%;
+}
+
+body{
+    background-image: url("/img/home_back.png");
+    
+}
+
+.back-img{
+    height: 50%;
+    width: 50%;
+}
