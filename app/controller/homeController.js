@@ -1,4 +1,3 @@
-
 function homeController(){
     return {
         index(req,res){
