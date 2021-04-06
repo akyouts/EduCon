@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const mongoose = require('mongoose')
-const mongoose_connection_string = 'mongodb://localhost:27017'
+const mongoose_connection_string = 'mongodb://localhost:27017/educon'
 
 
 
