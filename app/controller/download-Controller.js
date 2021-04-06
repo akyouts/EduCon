@@ -4,8 +4,7 @@ function downloadController(){
     return {
         async index(req,res){
             await pdf_model.find({ Course: 'BBA'}).then(result =>{
-               console.log(result[0])
-                res.render('notes',{ file: result[0] })
+                res.render('notes',{ file: result })
             }).catch(err =>{
                 console.log(err)
                 return res.send("<h1> Some thing went Worng </h1>")

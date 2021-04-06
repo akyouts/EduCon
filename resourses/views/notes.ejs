@@ -1,7 +1,9 @@
 <%- include("header") -%>
+<% for(i=0;i< file.length; i++) { %>
 <div class="download-section">
     <img class="pdf-logo" src="/img/pdf-logo.png" alt="pdf-logo">
-    <span><%= file.FileName %></span>
+    <span id= " " name ="<%= file[i]._id %>" ><%= file[i].FileName %></span>
     <button id="myButton">Download Now</button>
 </div>
+<% } %>
 <script src="/js/index.js"></script>
