@@ -13,10 +13,9 @@ function downloadController(){
             
            
         },
-        async downlaod(req,res){
+         downlaod(req,res){
             var downlaod_id = req.body.downloadId
-            res.json({status : "okS"})
-            await pdf_model.findById(downlaod_id).then(result =>{
+             pdf_model.findById(downlaod_id).then(result =>{
                 res.download('G:/Projects/Under Development/EduCon/public/pdf/Sample.pdf',function(err){
                     console.log(err)
                  })
