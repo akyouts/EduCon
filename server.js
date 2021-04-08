@@ -3,11 +3,14 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 const mongoose_connection_string = 'mongodb://localhost:27017/educon'
+const bodyParser = require('body-parser')
 
 
 
 
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
 
 app.set('view engine','ejs')
 app.set('views','G:/Projects/Under Development/EduCon/resourses/views')

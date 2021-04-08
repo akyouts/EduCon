@@ -5,7 +5,7 @@ function initroutes(app)
 {
     app.get('/', homeController().index)
     app.get('/download-section',downloadController().index)
-    app.get('/download-section/download',downloadController().downlaod)
+    app.post('/download',downloadController().downlaod)
 
 }
 

@@ -1,19 +1,35 @@
 console.log('Client-side code running');
 
-var button = document.getElementById('myButton');
+var button = document.querySelectorAll(".myButton")
 
-button.addEventListener('click', function(e) {
-    console.log('button was clicked');
+
+
+
+button.forEach(element => {
+  element.addEventListener('click', function(e) {
+    console.log('Download button was clicked');
+    fetch('/download', { method: 'POST', 
+      body: JSON.stringify({
+          downloadId: element.id
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+    }).then(res=> res.json())
+    .then(json => console.log(json))
   
-    fetch('/download', {method: 'POST'})
-      .then(function(response) {
-        if(response.ok) {
-          console.log('Click was recorded');
-          return;
-        }
-        throw new Error('Request failed.');
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  });
+  })
+ 
+
+});
+    
+
+
+
+
+
+
+
+
+
+

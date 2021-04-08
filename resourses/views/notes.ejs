@@ -2,8 +2,8 @@
 <% for(i=0;i< file.length; i++) { %>
 <div class="download-section">
     <img class="pdf-logo" src="/img/pdf-logo.png" alt="pdf-logo">
-    <span id= " " name ="<%= file[i]._id %>" ><%= file[i].FileName %></span>
-    <button id="myButton">Download Now</button>
-</div>
+    <span><%= file[i].FileName %></span> 
+    <button id="<%= file[i]._id %>" class="myButton" >Download Now</button>
+</div><br><br>
 <% } %>
 <script src="/js/index.js"></script>
