@@ -1,0 +1,22 @@
+<%- include("header") -%>
+ 
+<h1 style="text-align: center;">Teacher's Section</h1>
+
+<div class="upload-section">
+    <form action="/uploadPDF" method="POST" enctype="multipart/form-data">
+        <label for="Courses"> Select Course : </label>
+        <select name="Courses" id="">
+            
+            <option value="BBA">BBA</option>
+
+        </select>
+            <br>
+            <br>
+            
+        <input type="file" name="pdf" id="" multiple>
+        <br>
+        <br>
+        <button type="submit">Upload</button>
+        <button type="reset">Reset</button>
+    </form>
+</div>

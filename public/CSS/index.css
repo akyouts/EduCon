@@ -45,3 +45,14 @@ h1{
 .pdf-logo{
     height: -webkit-fill-available;
 }
+
+.upload-section{
+    height: 100px;
+    width: 90px;
+   
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+   
+    font-size: 250%;
+}

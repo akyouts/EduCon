@@ -1,9 +1,11 @@
 const pdf_model = require('../models/pdf') 
+const courseModel = require('../models/Course')
 
 
 function downloadController(){
     return {
         async index(req,res){
+            var course = courseModel.find({Course:'BBA'})
             await pdf_model.find({ Course: 'BBA'}).then(result =>{
                 res.render('notes',{ file: result })
             }).catch(err =>{
