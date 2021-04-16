@@ -1,8 +1,10 @@
+
 const homeController = require('../app/controller/homeController')
 const downloadController = require('../app/controller/download-Controller')
 const UploadController = require('../app/controller/Upload-Controller')
+const upload = require('../app/config/multerStorage')
 const multer = require('multer')
-const upload = multer({dest: 'G:/Projects/Under Development/EduCon/public/pdf'})
+
 
 function initroutes(app)
 {
@@ -16,7 +18,7 @@ function initroutes(app)
     
     // ALL post request
     app.post('/download',downloadController().downlaod)
-    app.post('/uploadPDF',upload.single('pdf'),UploadController().upload)
+    app.post('/uploadPDF',upload,UploadController().upload)
 }
 
 module.exports = initroutes
