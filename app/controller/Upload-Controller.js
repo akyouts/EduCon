@@ -9,11 +9,11 @@ function UploadController(){
         },
         upload(req,res){
            
-           if (!req.body.Courses)
+           if (!req.body)
            {
                res.send("Course requirement is Mandatory")
                
-           }else if(!req.file.originalname){
+           }else if(!req.file){
                res.send("File Selection is required")
            } else{
             var course = req.body.Courses
