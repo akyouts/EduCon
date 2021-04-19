@@ -33,10 +33,10 @@ h1{
 }
 .download-section{
     height: 100px;
-    width: 90px;
+    
    
     margin: auto;
-    width: 60%;
+    width: -webkit-fill-available;
     padding: 10px;
     border: 5px solid #000;
     font-size: 250%;
@@ -55,4 +55,16 @@ h1{
     padding: 10px;
    
     font-size: 250%;
+}
+
+.notesORcourse{
+    height: fit-content;
+    width: fit-content;
+   
+    margin: auto;
+  
+    padding: 10px;
+    border: 5px solid #000;
+    font-size: 250%;
+
 }

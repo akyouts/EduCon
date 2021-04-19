@@ -5,7 +5,7 @@ const maxsize = 50 * 1024 * 1024
 const storage = multer.diskStorage({
     destination : 'G:/Projects/Under Development/EduCon/public/pdf',
     filename : (req,file,cb)=>{
-        var storageName = file.fieldname + Date.now() + path.extname(file.originalname)
+        var storageName = file.originalname 
 
         cb(null,storageName.split(" ").join(""))
     }
