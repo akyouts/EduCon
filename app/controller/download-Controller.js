@@ -6,17 +6,24 @@ const courseModel = require('../models/Course')
 function downloadController(){
     return {
         async index(req,res){
-            var course = courseModel.find({Course:'BBA'})
-            await pdf_model.find({ Course: 'BBA'}).then(result =>{
-                courseModel.find({},(err,course)=>{
-                    if (err) {
-                        res.send("Some thing went wrong")
-                    }
-                    else{
-                        console.log(result)
-                        res.render('DownloadNotes',{ file: result , course: course })
-                    }
-                })
+            
+            
+            await pdf_model.find({ Course: req.body.Course_selected }).then(result =>{
+                if (result.length === 0) {
+                    res.send("<h1>Notes are not available</h1>")
+                }
+                else{
+                    courseModel.find({},(err,course)=>{
+                        if (err) {
+                            res.send("Some thing went wrong")
+                        }
+                        else{
+                            
+                            res.render('DownloadNotes',{ file: result , course: course })
+                        }
+                    })
+                }
+                
                 
             }).catch(err =>{
                 console.log(err)

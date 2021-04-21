@@ -11,13 +11,14 @@ function initroutes(app)
 
     //All get requests 
     app.get('/', homeController().index)
-    app.get('/download-section',downloadController().index)
+    
     app.get('/upload',UploadController().index)
     app.get('/courseornote',UploadController().courseORnote)
     app.get('/uploadCourse',UploadController().uploadCourse)
      
     
     // ALL post request
+    app.post('/download-section',downloadController().index)
     app.post('/download',downloadController().downlaod)
     app.post('/uploadPDF',upload,UploadController().upload)
     app.post('/uploadCourse',UploadController().uploadNewCourse)
