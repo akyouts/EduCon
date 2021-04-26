@@ -1,0 +1,27 @@
+<%- include("header") -%>
+
+<h1 style="text-align: center;">Teacher's Section</h1>
+
+<div class="upload-section">
+    <h3>Attention! Please Upload only valid embebing link from youtube</h3>
+    <form action="/uploadvideo" method="POST" enctype="application/x-www-form-urlencoded">
+        <label for="Courses" style="text-align: center;"> Enter Embedding Script : </label>
+        <input type="text" name="embeddingLink">
+        <br>
+        <label for="Courses" style="text-align: center;"> Video Name  : </label><br>
+        <input type="text" name="videoName">
+            <br>
+            <label for="Courses" style="text-align: center;"> Select Course : </label><br>
+            <select style="text-align: center;" name="Course" id="">
+                <% course.forEach((items)=>{ %>
+                    <option value="<%= items.Course %>"> <%= items.Course %> </option>
+                <% }) %>            
+    
+            </select>
+            <br>
+            <br>
+        
+        <button style="text-align: center;" type="submit">Upload</button>
+        
+    </form>
+</div>

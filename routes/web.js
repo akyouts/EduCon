@@ -15,6 +15,7 @@ function initroutes(app)
     app.get('/upload',UploadController().index)
     app.get('/courseornote',UploadController().courseORnote)
     app.get('/uploadCourse',UploadController().uploadCourse)
+    app.get('/uploadVideo',UploadController().getUploadVideo)
      
     
     // ALL post request
@@ -22,6 +23,7 @@ function initroutes(app)
     app.post('/download',downloadController().downlaod)
     app.post('/uploadPDF',upload,UploadController().upload)
     app.post('/uploadCourse',UploadController().uploadNewCourse)
+    app.post('/uploadVideo',UploadController().video)
 }
 
 module.exports = initroutes

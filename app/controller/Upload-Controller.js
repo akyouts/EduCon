@@ -1,6 +1,7 @@
 const pdfModel = require('../models/pdf') 
 const path = require('path')
 const course_Model = require('../models/Course')
+const video_model = require('../models/video')
 
 
 function UploadController(){
@@ -84,6 +85,37 @@ function UploadController(){
             }).catch(err=>{
                 res.send(err)
             })
+        },
+        getUploadVideo(req,res){
+            course_Model.find({},(err,course)=>{
+                if (err) {
+                    res.send("Some thing went wrong")
+                }
+                else{
+                    
+                    res.render('uploadVideo',{course: course})
+                }
+                
+            })
+        },
+        video(req,res){
+            var embeddingLink = req.body.embeddingLink
+            var videoName = req.body.videoName
+            var Course = req.body.Course
+            var videoData = new video_model({
+                videoName : videoName,
+                videoEmbeddingCode : embeddingLink,
+                course: Course
+            })
+            videoData.save().then(result=>{
+                res.send("Video Upload Succsseful ")
+            }).catch(err=>{
+                console.log(err)
+                res.send("Some Thing went Wrong")
+                
+            })
+            
+           
         }
     }
 }
