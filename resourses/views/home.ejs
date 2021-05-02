@@ -1,2 +1,19 @@
 <%- include("header") -%>
+<br>
+<br>
+<br>
+<br>
+<form action="/download-section" method="POST" >
+<div class="search-box" ><select name="Course_selected" class="select-box" id="">
+    <% course.forEach((items)=>{ %>
+      <option value="<%= items.Course %>"> <%= items.Course %> </option>
+  <% }) %>      
+  </select><br>
+  <label for="PDF" >PDF</label>
+  <input type="radio" name="selector" id="" class="PDF" value="PDF" checked>
+  <label for="video">Video</label>
+  <input type="radio" name="selector" id="" class="video" value="Video"><br>
+  <button type="submit" class="search-button"  >Search</button>
+</div>
+</form>
 

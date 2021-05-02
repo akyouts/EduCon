@@ -1,34 +1,65 @@
 const pdf_model = require('../models/pdf') 
 const courseModel = require('../models/Course')
+const video_model = require('../models/video')
 
 
 
 function downloadController(){
     return {
         async index(req,res){
+            if (req.body.selector === 'PDF') {
+                
+                await pdf_model.find({ Course: req.body.Course_selected }).then(result =>{
+                    if (result.length === 0) {
+                        res.send("<h1>Notes are not available</h1>")
+                    }
+                    else{
+                        courseModel.find({},(err,course)=>{
+                            if (err) {
+                                res.send("Some thing went wrong")
+                            }
+                            else{
+                                
+                                res.render('DownloadNotes',{ file: result , course: course })
+                            }
+                        })
+                    }
+                    
+                    
+                }).catch(err =>{
+                    console.log(err)
+                    return res.send("<h1> Some thing went Worng </h1>")
+                })
+            }
+            else{
+                courseModel.find({},(err,course)=>{
+                    if (err) {
+                        res.send("Some thing went wrong")
+                    }
+                    else{
+                         video_model.find({course: req.body.Course_selected},(err,result)=>{
+                             if (err) {
+                                 console.log(err)
+                                 res.render("Some thing went wrong")
+                             }
+                             else{
+                                 console.log(result)
+                                 if (result.length == 0) {
+                                     res.send("<h1>Videos are not available</h1>")
+                                 }
+                                 else{
+                                    res.render('VideoPlayer-Downloader',{video : result ,course: course })
+                                 }
+                                
+                             }
+                         })
+
+                        
+                    }
+                })
+            }
             
             
-            await pdf_model.find({ Course: req.body.Course_selected }).then(result =>{
-                if (result.length === 0) {
-                    res.send("<h1>Notes are not available</h1>")
-                }
-                else{
-                    courseModel.find({},(err,course)=>{
-                        if (err) {
-                            res.send("Some thing went wrong")
-                        }
-                        else{
-                            
-                            res.render('DownloadNotes',{ file: result , course: course })
-                        }
-                    })
-                }
-                
-                
-            }).catch(err =>{
-                console.log(err)
-                return res.send("<h1> Some thing went Worng </h1>")
-            })
             
            
         },

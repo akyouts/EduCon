@@ -1,9 +1,9 @@
+const video = require("../../app/models/video");
+
 console.log('Client-side code running');
 
 var button = document.querySelectorAll(".myButton")
 var CourseOption = document.querySelectorAll(".course-section")
-
-
 
 
 button.forEach(element => {
