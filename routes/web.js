@@ -3,7 +3,8 @@ const homeController = require('../app/controller/homeController')
 const downloadController = require('../app/controller/download-Controller')
 const UploadController = require('../app/controller/Upload-Controller')
 const upload = require('../app/config/multerStorage')
-const multer = require('multer')
+const authController = require('../app/controller/authController')
+
 
 
 function initroutes(app)
@@ -16,7 +17,9 @@ function initroutes(app)
     app.get('/courseornote',UploadController().courseORnote)
     app.get('/uploadCourse',UploadController().uploadCourse)
     app.get('/uploadVideo',UploadController().getUploadVideo)
-     
+    app.get('/login',authController().loginIndex)
+    app.get('/register',authController().registerIndex)
+
     
     // ALL post request
     app.post('/download-section',downloadController().index)
@@ -24,6 +27,9 @@ function initroutes(app)
     app.post('/uploadPDF',upload,UploadController().upload)
     app.post('/uploadCourse',UploadController().uploadNewCourse)
     app.post('/uploadVideo',UploadController().video)
+    app.post('/login',authController().loginPost)
+    app.post('/register',authController().RegisterPost)
+
 }
 
 module.exports = initroutes

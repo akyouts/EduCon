@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduHelper</title>
+  <script src="/js/index.js"></script>
   <link rel="stylesheet" href="/CSS/index.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -36,7 +37,7 @@
           </li>
           <li>
             <select name="Course_selected" style="width: 55px;   color: #7671de;
-            border-radius: 50px 50px;" id="">
+            border-radius: 50px 50px;" >
               <% course.forEach((items)=>{ %>
                 <option value="<%= items.Course %>">
                   <%= items.Course %>
@@ -47,16 +48,26 @@
              &nbsp;
 
           <li><label for="PDF" style="color: #7671de;">PDF</label>
-            <input type="radio" name="selector" id="" class="PDF" value="PDF" checked>
+            <input type="radio" name="selector" class="PDF" value="PDF" checked>
           </li>
           &nbsp;
           <li><label for="video" style="color: #7671de;">Video</label>
 
-            <input type="radio" name="selector" id="" class="video" value="Video">
+            <input type="radio" name="selector" class="video" value="Video">
           </li>
           &nbsp;
-          <li> <button type="submit" class="search-button" style="border-radius: 15px 50px 15px 50px;">Search</button>
+          <li> <button type="submit" class="search-button" >Search</button>
+            &nbsp;
           </li>
+          <li>
+            <a class="login-register-link" href="/login">
+                  <span >Login</span>  </a>
+          </li>
+          
+          <li>
+            <a class="login-register-link" href="/register">
+                  <span >SignUP</span></a>
+                        </li>
 
 
 

@@ -16,7 +16,7 @@ app.set('view engine','ejs')
 app.set('views','G:/Projects/Under Development/EduCon/resourses/views')
 
 
-mongoose.connect(mongoose_connection_string,{useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(mongoose_connection_string,{ useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
