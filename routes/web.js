@@ -4,6 +4,7 @@ const downloadController = require('../app/controller/download-Controller')
 const UploadController = require('../app/controller/Upload-Controller')
 const upload = require('../app/config/multerStorage')
 const authController = require('../app/controller/authController')
+const authChecker = require('../app/middleware/authChecker')
 
 
 
@@ -18,7 +19,7 @@ function initroutes(app)
     app.get('/uploadCourse',UploadController().uploadCourse)
     app.get('/uploadVideo',UploadController().getUploadVideo)
     app.get('/login',authController().loginIndex)
-    app.get('/register',authController().registerIndex)
+    app.get('/register',authChecker,authController().registerIndex)
 
     
     // ALL post request

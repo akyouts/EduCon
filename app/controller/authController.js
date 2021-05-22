@@ -1,6 +1,9 @@
 const course_Model = require('../models/Course')
 const bcrypt = require('bcrypt')
 const userModel = require('../models/user')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
+
 
 function authController(req,res){
     return {
@@ -21,14 +24,20 @@ function authController(req,res){
             var password = req.body.password
             await userModel.findOne({Email: email}).then( async hash=>{
                 if (hash){
-                    console.log(hash)
                     await bcrypt.compare(password,hash.Password).then(result=>{
                         if (result){
+                            console.log(process.env.jwtKey)
+                            const token = jwt.sign({id: hash._id},process.env.jwtKey)
+                            res.cookie("jwt",token,{
+                                maxAge: 60000 * 10,
+                                httpOnly : true
+                                
+                            })
                             res.status('201').redirect('/')
-
+                                    
                         }
                         else{
-                            res.send("User or Password may be wrong 1")
+                            res.send("User or Password may be wrong ")
                         }
                     })
                 }
