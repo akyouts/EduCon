@@ -14,7 +14,7 @@ function authController(req,res){
                 }
                 else{
                     
-                    res.render('login',{course:course})
+                    res.render('login',{course:course,user: req.cookies.user, jwt:req.cookies.jwt})
                 }
                 
             })
@@ -29,11 +29,15 @@ function authController(req,res){
                             console.log(process.env.jwtKey)
                             const token = jwt.sign({id: hash._id},process.env.jwtKey)
                             res.cookie("jwt",token,{
-                                maxAge: 60000 * 10,
+                                maxAge: 60000 * 60,
                                 httpOnly : true
                                 
                             })
-                            res.status('201').redirect('/')
+                            
+                            res.status('201').cookie("user",hash.Name,{
+                                maxAge:60000 * 60,
+                                httpOnly: true
+                            }).redirect('/')
                                     
                         }
                         else{
@@ -57,7 +61,7 @@ function authController(req,res){
                 }
                 else{
                     
-                    res.render('register',{course:course})
+                    res.render('register',{course:course,user: req.cookies.user, jwt:req.cookies.jwt})
                 }
                 
             })
@@ -86,8 +90,12 @@ function authController(req,res){
                res.status('500').send("Some thing went Wrong")
            })
         },
+        logOut(req,res){
+               res.clearCookie('jwt').clearCookie('user').redirect('/login')
+        }
       
     }
+
 }
 
 

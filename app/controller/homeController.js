@@ -8,7 +8,7 @@ function homeController(){
                 }
                 else{
                     
-                    res.render('home',{course:course})
+                    res.render('home',{course:course, user: req.cookies.user, jwt:req.cookies.jwt })
                 }
                 
             })

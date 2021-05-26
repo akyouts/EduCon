@@ -13,7 +13,7 @@ function UploadController(){
                 }
                 else{
                     
-                    res.render('UploadNotes',{course: course})
+                    res.render('UploadNotes',{course: course, user: req.cookies.user, jwt:req.cookies.jwt })
                 }
                 
             })
@@ -55,7 +55,7 @@ function UploadController(){
                 }
                 else{
                     
-                    res.render('Selecting-Course-or-notes',{course: course})
+                    res.render('Selecting-Course-or-notes',{course: course, user: req.cookies.user, jwt:req.cookies.jwt })
                 }
                 
             })
@@ -68,7 +68,7 @@ function UploadController(){
                 }
                 else{
                     
-                    res.render('uploadCourse',{course: course})
+                    res.render('uploadCourse',{course: course, user: req.cookies.user, jwt:req.cookies.jwt })
                 }
                 
             })
@@ -93,7 +93,7 @@ function UploadController(){
                 }
                 else{
                     
-                    res.render('uploadVideo',{course: course})
+                    res.render('uploadVideo',{course: course, user: req.cookies.user, jwt:req.cookies.jwt })
                 }
                 
             })

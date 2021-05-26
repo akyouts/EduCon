@@ -20,7 +20,7 @@ function downloadController(){
                             }
                             else{
                                 
-                                res.render('DownloadNotes',{ file: result , course: course })
+                                res.render('DownloadNotes',{ file: result , course: course, user: req.cookies.user, jwt:req.cookies.jwt  })
                             }
                         })
                     }
@@ -48,7 +48,7 @@ function downloadController(){
                                      res.send("<h1>Videos are not available</h1>")
                                  }
                                  else{
-                                    res.render('VideoPlayer-Downloader',{video : result ,course: course })
+                                    res.render('VideoPlayer-Downloader',{video : result ,course: course, user: req.cookies.user, jwt:req.cookies.jwt  })
                                  }
                                 
                              }

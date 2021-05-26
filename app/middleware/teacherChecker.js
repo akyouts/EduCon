@@ -1,4 +1,4 @@
-const e = require('express')
+
 const jwt = require('jsonwebtoken')
 const user = require('../models/user')
 
@@ -9,13 +9,13 @@ function authChecker(req,res,next){
         try{
             const verify = jwt.verify(token,process.env.jwtKey)
             user.find({_id:verify.id}).then(result=>{
-                if(req.cookies.user === result[0].Name){
+                if(req.cookies.user === result[0].Name && result[0].role === 'teacher'){
                     next()
                 }
                 else{
                     console.log(3)
                     
-                    res.clearCookie('jwt').clearCookie('user').redirect('/login')
+                    res.send('Un Authorized Access')
                 }
             })
             

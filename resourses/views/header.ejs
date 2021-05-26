@@ -60,13 +60,22 @@
             &nbsp;
           </li>
           <li>
+            <%if(jwt){ %>
+            <a class="login-register-link" href="/logOut">
+              <span >LogOut</span>  </a>
+            <% } else { %>
             <a class="login-register-link" href="/login">
                   <span >Login</span>  </a>
+                  <% } %>
           </li>
           
           <li>
-            <a class="login-register-link" href="/register">
-                  <span >SignUP</span></a>
+            <%if(jwt){ %>
+              
+              <% } else { %>
+                <a class="login-register-link" href="/register">
+                      <span >SignUP</span></a>
+                <% } %>
                         </li>
 
 
