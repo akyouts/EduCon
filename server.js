@@ -29,10 +29,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 require('./routes/web')(app)
 
 
-app.get('/secrets',(req,res)=>{
-    console.log(req.cookies)
-    res.send("We are sending data")
-})
+
 
 
 

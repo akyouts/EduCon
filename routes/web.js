@@ -6,6 +6,8 @@ const upload = require('../app/config/multerStorage')
 const authController = require('../app/controller/authController')
 const authChecker = require('../app/middleware/authChecker')
 const teacherChecker = require('../app/middleware/teacherChecker')
+const loginChecker = require('../app/middleware/loginchecker')
+const uploadVideo = require('../app/config/videoUploadmulterConfig')
 
 
 
@@ -19,8 +21,8 @@ function initroutes(app)
     app.get('/courseornote',teacherChecker,UploadController().courseORnote)
     app.get('/uploadCourse',teacherChecker,UploadController().uploadCourse)
     app.get('/uploadVideo',teacherChecker,UploadController().getUploadVideo)
-    app.get('/login',authController().loginIndex)
-    app.get('/register',authController().registerIndex)
+    app.get('/login',loginChecker,authController().loginIndex)
+    app.get('/register',loginChecker,authController().registerIndex)
     app.get('/logOut',authController().logOut)
 
     
@@ -29,9 +31,9 @@ function initroutes(app)
     app.post('/download',authChecker,downloadController().downlaod)
     app.post('/uploadPDF',teacherChecker,upload,UploadController().upload)
     app.post('/uploadCourse',teacherChecker,UploadController().uploadNewCourse)
-    app.post('/uploadVideo',teacherChecker,UploadController().video)
-    app.post('/login',authController().loginPost)
-    app.post('/register',authController().RegisterPost)
+    app.post('/uploadVideo',teacherChecker,uploadVideo,UploadController().video)
+    app.post('/login',loginChecker,authController().loginPost)
+    app.post('/register',loginChecker,authController().RegisterPost)
     
 
 }

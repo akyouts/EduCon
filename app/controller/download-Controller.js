@@ -67,7 +67,7 @@ function downloadController(){
             var downlaod_id = req.body.downloadId
             
              pdf_model.findById(downlaod_id).then(result =>{
-                 
+                 console.log(result.FileName)
                 res.download('G:/Projects/Under Development/EduCon/public/pdf/'+result.FileName,function(err){
                     console.log(err)
                  })

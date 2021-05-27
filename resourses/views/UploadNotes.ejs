@@ -5,6 +5,7 @@
 <div class="upload-section">
     <form action="/uploadPDF" method="POST" enctype="multipart/form-data">
         <label for="Courses" style="text-align: center;"> Select Course : </label>
+        
         <select style="text-align: center;" name="Course" id="">
             <% course.forEach((items)=>{ %>
                 <option value="<%= items.Course %>"> <%= items.Course %> </option>

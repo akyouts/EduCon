@@ -99,12 +99,11 @@ function UploadController(){
             })
         },
         video(req,res){
-            var embeddingLink = req.body.embeddingLink
-            var videoName = req.body.videoName
+          
+            var videoName = req.file.originalname
             var Course = req.body.Course
             var videoData = new video_model({
                 videoName : videoName,
-                videoEmbeddingCode : embeddingLink,
                 course: Course
             })
             videoData.save().then(result=>{
