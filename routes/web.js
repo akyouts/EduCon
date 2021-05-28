@@ -8,6 +8,7 @@ const authChecker = require('../app/middleware/authChecker')
 const teacherChecker = require('../app/middleware/teacherChecker')
 const loginChecker = require('../app/middleware/loginchecker')
 const uploadVideo = require('../app/config/videoUploadmulterConfig')
+const videoStreamingController = require('../app/controller/videoStream')
 
 
 
@@ -24,6 +25,11 @@ function initroutes(app)
     app.get('/login',loginChecker,authController().loginIndex)
     app.get('/register',loginChecker,authController().registerIndex)
     app.get('/logOut',authController().logOut)
+
+
+    //video streaming routes
+      app.get('/videoPage',videoStreamingController().videoindex)
+      app.get('/video',videoStreamingController().video)
 
     
     // ALL post request
