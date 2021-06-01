@@ -75,6 +75,18 @@ function downloadController(){
                 console.log(err)
             })
             
+        },
+        downlaodVideo(req,res){
+            var downlaod_id = req.body.downloadId
+            
+            video_model.findById(downlaod_id).then(result =>{
+                console.log(result.videoName)
+               res.download('G:/Projects/Under Development/EduCon/public/video/'+result.videoName,function(err){
+                   console.log(err)
+                })
+           }).catch(err =>{
+               console.log(err)
+           })
         }
     }
 }
