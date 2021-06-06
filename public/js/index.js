@@ -36,7 +36,7 @@ button.forEach(element => {
 video.forEach(element => {
   element.addEventListener('click', function(e) {
     console.log('Download button was clicked');
-    element.value = 1
+    document.querySelector('#videoform').innerHTML =`<input style="display: none;" type="text" name="videoId" value="${element.id}"></input>`
     document.querySelector('#videoform').submit()
     
 

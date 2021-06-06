@@ -29,8 +29,8 @@ function initroutes(app)
 
     //video streaming routes
       
-      app.post('/videoPage',videoStreamingController().videoindex)
-      app.get('/video',videoStreamingController().video)
+      app.post('/videoPage',authChecker,videoStreamingController().videoindex)
+      app.get('/video',authChecker,videoStreamingController().video)
 
     
     // ALL post request
