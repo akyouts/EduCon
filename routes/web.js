@@ -29,7 +29,7 @@ function initroutes(app)
 
     //video streaming routes
       
-      app.get('/videoPage',videoStreamingController().videoindex)
+      app.post('/videoPage',videoStreamingController().videoindex)
       app.get('/video',videoStreamingController().video)
 
     
@@ -42,7 +42,7 @@ function initroutes(app)
     app.post('/register',loginChecker,authController().RegisterPost)
     
     //All download Request
-    app.post('/downloadVideo',authChecker,downloadController().downlaodVideo)
+    //app.post('/downloadVideo',authChecker,downloadController().downlaodVideo)
     app.post('/download',authChecker,downloadController().downlaod)
 }
 

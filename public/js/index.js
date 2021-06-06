@@ -36,15 +36,19 @@ button.forEach(element => {
 video.forEach(element => {
   element.addEventListener('click', function(e) {
     console.log('Download button was clicked');
-    fetch('/downloadVideo', { method: 'POST', 
-      body: JSON.stringify({
-          downloadId: element.id
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-    }
-    }).then(res=> res.json())
-    .then(json => console.log(json))
+    element.value = 1
+    document.querySelector('#videoform').submit()
+    
+
+    // fetch('/videoPage', { method: 'POST', 
+    //   body: JSON.stringify({
+    //       downloadId: element.id
+    //   }),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8"
+    // }
+    // }).then(res=> res.json())
+    // .then(json => console.log(json))
   
   })
  

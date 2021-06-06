@@ -1,6 +1,6 @@
 const pdf_model = require('../models/pdf') 
 const courseModel = require('../models/Course')
-const video_model = require('../models/video')
+const video_model = require('../models/Uploadvideo')
 
 
 
@@ -76,7 +76,7 @@ function downloadController(){
             })
             
         },
-        downlaodVideo(req,res){
+        PlayVideo(req,res){
             var downlaod_id = req.body.downloadId
             
             video_model.findById(downlaod_id).then(result =>{

@@ -7,7 +7,7 @@
 <br>
 <br>
 <br>
-
+<form action="/videopage" method="POST" id="videoform">
 <% for(i=0;i< video.length; i++) { %>
     <div class="download-section">
         <img class="pdf-logo" src="/img/pdf-logo.png" alt="pdf-logo">
@@ -16,11 +16,13 @@
         &nbsp;
         &nbsp;
         &nbsp;
-
-        <!-- <button id="<%= video[i]._id %>" class="myButtonVideoPlay" >Play Now</button> -->
-        <button id="<%= video[i]._id %>" class="myButtonVideo" >Download Now</button>
+         
+            <input style="display: none;" type="text" name="videoId" value="<%=video[i]._id %>">
+        <button id="<%= video[i]._id %>" class="myButtonVideo" value="" type="button" >Play Now</button>
+    
     </div><br><br>
     <% } %>
+</form>
 
 <script>
         

@@ -1,7 +1,7 @@
 const pdfModel = require('../models/pdf') 
 const path = require('path')
 const course_Model = require('../models/Course')
-const video_model = require('../models/video')
+const video_model = require('../models/Uploadvideo')
 
 
 function UploadController(){
