@@ -7,7 +7,7 @@ function authChecker(req,res,next){
     {
         token = req.cookies.jwt
         try{
-            const verify = jwt.verify(token,process.env.jwtKey)
+            const verify = jwt.verify(token,"heloo")
             user.find({_id:verify.id}).then(result=>{
                 if(req.cookies.user === result[0].Name && result[0].role === 'teacher'){
                     next()

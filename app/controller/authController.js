@@ -27,7 +27,7 @@ function authController(req,res){
                     await bcrypt.compare(password,hash.Password).then(result=>{
                         if (result){
                             console.log(process.env.jwtKey)
-                            const token = jwt.sign({id: hash._id},process.env.jwtKey)
+                            const token = jwt.sign({id: hash._id},"heloo")
                             res.cookie("jwt",token,{
                                 maxAge: 60000 * 60,
                                 httpOnly : true
